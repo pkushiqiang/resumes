@@ -1,0 +1,195 @@
+% Author - Zafar Khaydarov
+% Date Sun Jul 27 01:32:19 EDT 2014
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+\renewcommand{\familydefault}{\sfdefault}
+% -----------------------------------------------------------------------
+\def \address{1301 Barthelow Dr. Apt. 13B,\\College Station, TX 77840}
+\def \author{Shiqiang Guo}
+\def \email{pkushiqiang@gmail.com}
+\def \phnum{(979)739-5731}
+% -----------------------------------------------------------------------
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+\usepackage[paper=letterpaper,
+            marginparwidth=5mm,       % Length of section titles
+            marginparsep=1.5mm,       % Space between titles and text
+            margin=20mm,              % margins
+            %includemp,
+			noheadfoot,
+			top=10mm,
+			pdftex
+            ]{geometry}
+
+\usepackage{mathtools}
+\usepackage{blindtext}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% This gives us fun enumeration environments. compactitem will be nice.
+\usepackage{paralist}
+
+% \usepackage{fontsetname}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagestyle{empty}      % Uncomment this to get rid of page numbers
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\section}[2]%
+        {\pagebreak[2]\vspace{0.01\baselineskip}
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+		 \textsc{{#1}}%\rmfamily{\scshape{#1}}
+         \hspace{50in}\vspace{2.5mm}\noindent\hrule
+        }
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1]}{\end{itemize}%
+         \vspace{-.8\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{list}{#1}{%
+        \setlength{\partopsep}{6pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{compactitem}[#1]}{\end{compactitem}
+        \vspace{0.5\baselineskip}}
+
+\newcommand{\hlinewidth}{0.01pt}
+
+\newcommand{\jobitem}[3]{%
+  \par\vspace{2pt}\noindent
+  \makebox[0pt][l]{#1}%
+  \makebox[\textwidth][c]{#2}%
+  \makebox[0pt][r]{\textbf{#3}}\par\vspace{1pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% Begin RESUME Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\newlength{\rcollength}\setlength{\rcollength}{3.0in}%
+%\begin{center}
+\begin{tabular} {
+  p{\textwidth/3-\marginparwidth+2mm}
+  p{\textwidth/3-\marginparwidth+2mm}
+  p{\textwidth/3-\marginparwidth+2mm}}
+	\begin{flushleft}
+		\address
+	\end{flushleft}
+	&
+	\begin{center}
+	\Large{\author}
+	\end{center}
+	&
+	\begin{flushright}
+		{\phnum}
+ 	    {\email} 	
+	\end{flushright}
+\end{tabular}
+%\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Personal Profile}
+\noindent\rule{\textwidth}{\hlinewidth}
+\begin{innerlist}
+        \item 6 years experience on J2EE technologies like Spring, Struts, Hibernate, Maven, Tomcat.
+        \item Doing the development of Rich Internet Application using Openlaszlo/AJAX technologies.
+        \item Reading, tracing and maintaining the source code of legacy systems.
+        \item Experience in test driven development with Agile methodology.
+\end{innerlist}
+
+\section{Education}
+\noindent\rule{\textwidth}{\hlinewidth}
+% you can duplicate lines below to include other degree you have
+\begin{innerlist}
+	\item \textbf{M.S. Computer Science}, Texas A\&M University, GPA 3.6 \hfill\textbf{May 2015}
+    \item \textbf{M.S. Software Engineering}, Peking University, GPA 3.5 \hfill\textbf{Jul 2006}
+\end{innerlist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Languages and technologies}
+
+\noindent\rule{\textwidth}{\hlinewidth}
+\begin{innerlist}
+\item Java, J2EE, Spring, Hibernate, Struts, Lucene, Junit, OpenNLP, Python, Open Laszlo 
+\item C/C++, PHP, JavaScript, HTML, Pascal, Flask, jQuery, AngularJs, Bootstrap 
+\item MS-SQL, MySQL, MongoDB, Linux, SVN, GitHub, Perforce, Tomcat, Maven, JIRA
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Employment}
+\noindent\rule{\textwidth}{\hlinewidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\jobitem{\textbf{Software Engineer}}
+{\textbf{Laszlo Systems}}
+{\hfill \textbf{Aug 2008 - Jul 2012}}
+\begin{innerlist}
+	\item Optimized the compiler and runtime library of the OpenLaszlo platform.
+    \item Designed software architectures and developed prototypes of projects.
+    \item Led the Laszlo China team to develop projects and communicated with the US team.
+\end{innerlist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\jobitem{\textbf{Software Engineer}}
+{\textbf{Rich Web Inc.} }
+{\hfill \textbf{Jul 2006 - Jul 2008 }}
+\begin{innerlist}
+	\item Participated in the whole software life cycle, such as requirement analysis, prototype design, architecture design, and implementation.
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Projects}
+\noindent\rule{\textwidth}{\hlinewidth}
+% you can duplicate lines below to include other degree/awards/etc you have
+
+$\bullet$ \textbf{ R\'esum\'e-Job Matching System  }
+
+A system that matches jobs to r\'esum\'es to help job seekers find the most appropriate jobs, using Pyhon, NLTK, Flask and MongoDB.
+
+$\bullet$ \textbf{ Pattern Recognition Based on Deep Learning Network }
+
+Implemented the algorithm of Deep Learning Network to recognize the synthetic and sketch characters.
+
+$\bullet$ \textbf{ Global Film and Exhibitor Info Management System for Warner Bros.}
+
+The system can distribute the film information and content, like basic information, trailers and posters to global theaters and exhibitors. I designed the architecture of the client side, and led a 12-member team to implement it in 11 months in Open Laszlo. I implemented the localization module which allowed users in different countries to localize the UI by themselves when using it.
+
+$\bullet$ \textbf{ Online Room Painting Application for Valspar Corp. }
+
+Designed the architecture of the application, and led the team in China to implement it in Open Laszlo. Cooperated with UI and UE team to find better user experience, and solved some technical challenges.
+
+$\bullet$ \textbf{ Laszlo Webtop }
+
+The flagship product of LaszloSystems, which allows users to access their email, address books, and social networking applications from a dynamic, branded web-based environment. I led the team in China to develop, customize, and maintain the system.
+
+$\bullet$ \textbf{ Xanadu REST Framework}
+
+A RESTful J2EE framework for Rich Internet Application, which can  reduce the server side load and improve the development speed by generating the database operation without coding.
+
+$\bullet$ \textbf{ Xanadu Webtop Platform (WebOS prototype)}
+
+Designed a prototype platform, which provided a desktop like environment in browsers. End users can add and remove apps in it, and developers can develop their own apps for the system.
+
+
+$\bullet$ \textbf{ Video-sharing Website }
+
+Designed the front-end and back-end of a Video-sharing website, using Spring, Hibernate, Lucene and Mysql.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%% End RESUME Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
